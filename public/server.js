@@ -13,7 +13,7 @@ app.get('/notes', (req, res) => {
 
 app.get('/api/notes', (req, res) => {;
     fs.readFile('/Users/joeypham/Desktop/Challenges/note-taker/db/db.json', "utf8", (err, data) => {
-        console.log(data);
+        res.send(data);
      })
 
  });
