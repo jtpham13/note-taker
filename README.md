@@ -9,7 +9,7 @@ In the terminal run npm init -y and nmp i express.
 
 ## Usage
 
-
+<img src="https://github.com/jtpham13/note-taker/blob/main/public/assets/images/notetaker.png">
 
 ## License 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
