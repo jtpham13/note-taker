@@ -1,5 +1,7 @@
 const express = require('express')
 const app = express()
+const routes = require('./routes');
+
 var fs = require('fs')
 
  /* this line tells Express to use the public folder as our static folder from which we can serve static files*/
@@ -23,4 +25,5 @@ app.get('*', (req, res) => {
   });
 
 
+  
 app.listen(3000, () => console.log('Example app is listening on port 3000.'));
