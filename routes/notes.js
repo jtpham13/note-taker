@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+var uniqid = require('uniqid');
 const fs = require('fs');
 
 // GET /api/notes - Retrieve all notes
@@ -18,7 +19,7 @@ router.get('/', (req, res) => {
 router.post('/', (req, res) => {
   const { title, text } = req.body;
   // Generate a unique ID for the note (you can use a library like uuid to generate IDs)
-  const id = generateUniqueId();
+  const id = uniqid();
 
   // Create a new note object
   const newNote = {

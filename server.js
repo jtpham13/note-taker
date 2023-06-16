@@ -1,29 +1,27 @@
 const express = require('express')
+const path = require('path')
 const app = express()
-const routes = require('./routes');
+const PORT = process.env.PORT ||3000
+const routes = require('./routes/api');
 
-var fs = require('fs')
 
+app.use(express.json())
+app.use(express.urlencoded({extended:true}))
  /* this line tells Express to use the public folder as our static folder from which we can serve static files*/
 app.use(express.static('public'));
+  app.use('/api', routes)
 
 // respond with "hello world" when a GET request is made to the homepage
 app.get('/notes', (req, res) => {
-    res.sendFile('/Users/joeypham/Desktop/Challenges/note-taker/public/notes.html');
+    res.sendFile(path.join(__dirname, '/public/notes.html'));
 
-})
+});
 
-app.get('/api/notes', (req, res) => {;
-    fs.readFile('/Users/joeypham/Desktop/Challenges/note-taker/db/db.json', "utf8", (err, data) => {
-        res.send(data);
-     })
-
- });
 
 app.get('*', (req, res) => {
-    res.sendFile('/Users/joeypham/Desktop/Challenges/note-taker/public/index.html');
+    res.sendFile(path.join(__dirname, '/public/index.html'));
   });
 
 
   
-app.listen(3000, () => console.log('Example app is listening on port 3000.'));
+app.listen(PORT, () => console.log('Example app is listening on port 3000.'));
